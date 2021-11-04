@@ -22,7 +22,7 @@ class EtlService(metaclass=SingletonMeta):
         df = pd.DataFrame(data=z_fizz_buzz, columns=["2", "3", "5", "7", "11", "13", "Class"])
         df.to_csv('fist100FizzBuzz_ground_truth.csv', index=False)
 
-    def switch_index_encode(argument):
+    def switch_index_encode(self, argument):
         switcher = {
             2: 0,
             3: 1,
@@ -42,7 +42,7 @@ class EtlService(metaclass=SingletonMeta):
                 code[index] = 1
         return code
 
-    def fizzbuzz(i):
+    def fizzbuzz(self, i):
         if i % 15 == 0:
             return 1
         if i % 5 == 0:
@@ -51,7 +51,7 @@ class EtlService(metaclass=SingletonMeta):
             return 3
         return 4
 
-    def switch_fizz_buzz(argument):
+    def switch_fizz_buzz(self, argument):
         switcher = {
             4: "None",
             3: "Fizz",
