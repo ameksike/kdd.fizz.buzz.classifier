@@ -11,6 +11,10 @@
     - lsc: Learning Classifier System
 ```
 
+## Requirements 
+- python v3.8.3
+- pip v20.1.1
+
 ## Install
 - pip install -r requirements.txt
 - pip list
@@ -23,5 +27,8 @@
 - python bin/server.py 
 - http://127.0.0.1:8000/
 
-
+## Endpoints 
+- http://127.0.0.1:8000/api/lcs/generate
+- http://127.0.0.1:8000/api/lcs/traing
+- http://127.0.0.1:8000/api/lcs/classify
 
