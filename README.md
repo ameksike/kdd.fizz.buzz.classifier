@@ -15,8 +15,13 @@
 - pip install -r requirements.txt
 - pip list
 
-## Run
+## Run 1
 - heroku local web -f Procfile.win2
+- http://127.0.0.1:8000/
+
+## Run 2
+- python bin/server.py 
+- http://127.0.0.1:8000/
 
 
 
