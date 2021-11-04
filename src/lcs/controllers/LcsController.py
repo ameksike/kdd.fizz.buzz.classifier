@@ -10,10 +10,10 @@ srvMl.setEtl(srvEtl)
 
 @app.route("/api/lcs/generate", methods=["POST"])
 def generate():
-    sample_size = request.form.get("Sample Size")
+    sample_size = request.form.get("size", 10)
     result = srvEtl.generate(sample_size)
     resp = make_response(result.to_csv(index=False))
-    resp.headers["Content-Disposition"] = "attachment; filename=sample_data_" + sample_size +".csv"
+    resp.headers["Content-Disposition"] = "attachment; filename=sample_data_" + str(sample_size) +".csv"
     resp.headers["Content-Type"] = "text/csv"
     return resp
 

@@ -28,7 +28,7 @@
 - http://127.0.0.1:8000/
 
 ## Endpoints 
-- http://127.0.0.1:8000/api/lcs/generate
-- http://127.0.0.1:8000/api/lcs/traing
-- http://127.0.0.1:8000/api/lcs/classify
+- POST http://127.0.0.1:8000/api/lcs/generate
+- POST http://127.0.0.1:8000/api/lcs/traing
+- POST http://127.0.0.1:8000/api/lcs/classify
 
