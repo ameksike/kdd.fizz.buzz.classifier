@@ -8,7 +8,7 @@ srvEtl = EtlService()
 srvMl = MlService()
 srvMl.setEtl(srvEtl)
 
-@app.route("/api/ml/generate", methods=["POST"])
+@app.route("/api/lcs/generate", methods=["POST"])
 def generate():
     sample_size = request.form.get("Sample Size")
     result = srvEtl.generate(sample_size)
@@ -17,7 +17,7 @@ def generate():
     resp.headers["Content-Type"] = "text/csv"
     return resp
 
-@app.route("/api/ml/traing", methods=["POST"])
+@app.route("/api/lcs/traing", methods=["POST"])
 def traing():
     f = request.files['archive']
     cross_validation_scores, cross_validation_score_mean, accuracy_score, precision_score, recall_score, f1_score, classifer_name = \
@@ -33,7 +33,7 @@ def traing():
         "classifer_name": classifer_name
     }
 
-@app.route("/api/ml/classify", methods=["POST"])
+@app.route("/api/lcs/classify", methods=["POST"])
 def classify():
     file_classifer = request.files['archive']
     numFrom = request.form.get("from")
