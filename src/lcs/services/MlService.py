@@ -26,13 +26,13 @@ class MlService(metaclass=SingletonMeta):
 
             return result, f1_score(y_target, preds, average='micro')
 
-    def train(filename):
+    def train(self, filename):
         df = pd.read_csv(filename)
         print("example of first sample data set")
         print(df.head())
         print("-----------------------------------------")
         print(df.groupby('Class').size())
-
+        print("-----------------------------------------")
         data = np.array(df.drop(['Class'], 1))
         target = np.array(df['Class'])
         print("------------ number of generated sample data set  ----------------")
