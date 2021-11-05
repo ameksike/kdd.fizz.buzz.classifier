@@ -60,16 +60,16 @@ class EtlService(metaclass=SingletonMeta):
         }
         return switcher.get(argument, -1)
 
-    def save_object(filename, model):
+    def save_object(self, filename, model):
         with open('' + filename, 'wb') as file:
             joblib.dump(model, filename)
 
-    def load_object(filename):
+    def load_object(self, filename):
         with open('' + filename, 'rb') as f:
             loaded = joblib.load(f)
         return loaded
 
-    def create_model():
+    def create_model(self):
         model_lR = linear_model.LogisticRegression(
             C=1.0, class_weight=None, dual=False,
             fit_intercept=True, intercept_scaling=1, max_iter=1000,
