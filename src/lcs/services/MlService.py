@@ -28,11 +28,9 @@ class MlService(metaclass=SingletonMeta):
 
     def train(self, filename):
         df = pd.read_csv(filename)
-        print("example of first sample data set")
+        print("Example of first sample data set")
         print(df.head())
-        print("-----------------------------------------")
         print(df.groupby('Class').size())
-        print("-----------------------------------------")
         data = np.array(df.drop(['Class'], 1))
         target = np.array(df['Class'])
         print("------------ number of generated sample data set  ----------------")
@@ -52,7 +50,7 @@ class MlService(metaclass=SingletonMeta):
         cross_validation_scores = model_selection.cross_val_score(model_lr, x_train, y_train, cv=kfold, scoring="f1_micro")
 
         preds = model_lr.predict(x_validation)
-        classif_name = 'classifier_' + str(data.shape[0]) + '_data_sample' + '.pkl'
+        classif_name = 'data/classifier_' + str(data.shape[0]) + '_data_model' + '.pkl'
         self.etl.save_object(classif_name, model_lr)
 
         print("------------ classification report ----------------")
