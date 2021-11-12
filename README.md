@@ -44,7 +44,7 @@ Request:
     "size": 10
 }
 ```
-response: 
+Response: 
 ```
 2,3,5,7,11,13,Class 
 0,0,0,0,0,0,4 
