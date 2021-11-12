@@ -3,12 +3,24 @@ from sklearn import metrics, model_selection
 from sklearn.metrics import classification_report, precision_score, recall_score, f1_score, accuracy_score
 import pandas as pd
 import numpy as np
+import joblib
 
 class MlService(metaclass=SingletonMeta):
     def setEtl(self, etl):
         self.etl = etl
 
-    def classify(self, filename, num_from, num_to):
+    def classify(self, modelname, data):
+        load_model_lr = joblib.load(modelname)
+
+        predict = load_model_lr.predict([self.etl.factors_prime_encode(data)])
+        predict = predict[0]
+        label = self.etl.switch_fizz_buzz(predict) == "None" if "" else self.etl.switch_fizz_buzz(predict)
+        return {
+            "class": int(predict),
+            "label": label
+        }
+
+    def classifyList(self, filename, num_from, num_to):
         if (num_from < num_to) and (num_from >= 1 and num_to <= 100):
             load_model_lr = joblib.load(filename)
             # select the range [1:100] Ground Truth

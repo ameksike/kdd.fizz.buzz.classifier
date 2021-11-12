@@ -40,15 +40,13 @@ def traing():
 
 @app.route("/api/lcs/classify", methods=["POST"])
 def classify():
-    file_classifer = request.files['archive']
-    numFrom = request.form.get("from")
-    numTo = request.form.get("to")
-    result, f1_score = srvMl.classify(file_classifer.filename, int(numFrom), int(numTo))
-    return {
-        "numFrom": str(numFrom), 
-        "numTo":  str(numTo), 
-        "result": result,
-        "score": str(f1_score)
-    }
+    path = os.path.dirname(__file__) + "../../../../data/"
+    filename = request.json.get("modelname", "classifier_100_data_model")
+    filename = path + filename + ".pkl"
+    filename = os.path.abspath(filename)
+    data = request.json.get("data", 10)
+
+    result = srvMl.classify(filename, int(data))
+    return jsonify(result)
 
 
