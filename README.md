@@ -15,7 +15,8 @@ Demo Fizz Buzz classifier base on Python with sklearn
 - python v3.8.3
 - pip v20.1.1
 
-## Install
+## 
+- git clone https://github.com/ameksike/kdd.fizz.buzz.classifier.git
 - pip install -r requirements.txt
 - pip list
 
