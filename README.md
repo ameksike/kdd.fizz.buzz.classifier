@@ -56,6 +56,14 @@ response:
 ```
 POST http://127.0.0.1:8000/api/lcs/traing
 ```
+
+Request:
+```json
+{
+    "modelname": "sample_data_100"
+}
+```
+
 Response:
 ```json
 { 

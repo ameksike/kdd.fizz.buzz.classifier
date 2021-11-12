@@ -20,7 +20,8 @@ def generate():
 @app.route("/api/lcs/traing", methods=["POST"])
 def traing():
     path = os.path.dirname(__file__) + "../../../../data/"
-    filename = path + request.form.get("modelname", 'sample_data_100') + ".csv"
+    filename = request.json.get("modelname", "sample_data_100")
+    filename = path + filename + ".csv"
     filename = os.path.abspath(filename)
 
     cross_validation_scores, cross_validation_score_mean, accuracy_score, precision_score, recall_score, f1_score, classifer_name = \
