@@ -28,11 +28,18 @@ Demo Fizz Buzz classifier base on Python with sklearn
 - python bin/server.py 
 - http://127.0.0.1:8000/
 
-### Endpoint Generate
 
-Request:
+## Endpoints
+- generate
+- traing
+- classify
+
+### Endpoint Generate
 ```
 POST http://127.0.0.1:8000/api/lcs/generate
+```
+Request:
+```json
 {
     "size": 10
 }
@@ -56,6 +63,14 @@ response:
 ```
 POST http://127.0.0.1:8000/api/lcs/traing
 ```
+
+Request:
+```json
+{
+    "modelname": "sample_data_100"
+}
+```
+
 Response:
 ```json
 { 
@@ -71,5 +86,21 @@ Response:
 ### Endpoint Classify
 ```
 POST http://127.0.0.1:8000/api/lcs/classify
+```
+
+Request:
+```json
+{
+    "modelname": "classifier_500_data_model",
+    "data": 15
+}
+```
+
+Response:
+```json
+{ 
+    "class": 1, 
+    "label": "FizzBuzz" 
+}
 ```
 
